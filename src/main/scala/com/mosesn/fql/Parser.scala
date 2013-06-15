@@ -13,13 +13,8 @@ object FutureParser extends JavaTokenParsers {
     case a ~ b ~ c => Query(a, b, c)
   }
 
-  /*
-  lazy val selectClause: Parser[WhatWill] = select ~> " " ~> selectors ^^ {
+  lazy val selectClause: Parser[WhatWill] = select ~> selectors ^^ {
     case strings => WhatWill(strings)
-  }
-   */
-  lazy val selectClause: Parser[WhatWill] = select ~ selectors ^^ {
-    case _ ~ strings => WhatWill(strings)
   }
 
 
